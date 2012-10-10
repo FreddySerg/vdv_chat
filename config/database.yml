@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: parasenok_base
+  host: "localhost"
+  pool: 5
+  username: postgres
+  password: "123123"
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: parasenok_base_test
+  host: "localhost"
+  pool: 5
+  username: postgres
+  password: "123123"
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: parasenok_base_production
+  host: "localhost"
+  pool: 5
+  username: postgres
+  password: "123123"

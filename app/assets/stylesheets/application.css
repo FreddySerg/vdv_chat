@@ -1,0 +1,108 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+
+body{
+  background: url('/assets/bg.png') repeat;
+}
+
+.message{
+  border: solid #d5d5d5 1px;
+  display: table-cell;
+  vertical-align: middle;
+  width: 680px;
+  height: 50px;
+  background-color: white;
+  padding-left: 19px;
+  color: #999999;
+}
+
+.active{
+  color: #000000;
+}
+
+table{
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  border-spacing:0;
+  border-collapse:collapse;
+}
+
+table.task{
+  width: 740px;
+  margin: 0 70% 0 30%;
+}
+
+table.active{
+  width: 100%;
+}
+
+table.unactive_table{
+  width: 100%;
+}
+
+table.task td{
+  padding-right: 10px;
+  width: 30px;
+}
+
+table.task td.main{
+  width: 700px;
+  padding-right: 0px;
+}
+
+table.active td{
+  width: 700px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+}
+
+table.unactive_table td.text{
+  width: 700px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+}
+
+.line td.main{
+  padding-top: 10px;
+  padding-bottom: 21px;
+}
+
+.unactive td.img{
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+.form{
+  padding-top: 10px;
+}
+
+table.active td.textarea_td{
+  padding-bottom: 2px;
+}
+
+.button{
+  width: 128px;
+  height: 30px;
+  background-color: white;
+  color: #666666;
+  position: relative;
+  border: solid #999999 1px;
+}
+
+.textarea_style{
+  width: 694px;
+  height: 94px;
+  border: solid #999999 1px;
+  resize: none;
+}

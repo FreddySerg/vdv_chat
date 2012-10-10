@@ -1,0 +1,4 @@
+$("#active tr").remove();
+$("#active").append("<%= escape_javascript(render :partial => 'text_active', :collection => @active, :as => :item) %>");
+$(".unactive").remove();
+$(".line").after("<%= escape_javascript(render :partial => 'text_unactive', :collection => @unactive, :as => :item) %>");
