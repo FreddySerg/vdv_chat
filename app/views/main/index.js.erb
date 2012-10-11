@@ -3,3 +3,4 @@ $('#form_tr').css('display','none');
 $('#add_tr').css('display','');
 $(".unactive").remove();
 $(".line").after("<%= escape_javascript(render :partial => 'text_unactive', :collection => @messages[:unactive], :as => :item) %>");
+scroll_to_textarea();

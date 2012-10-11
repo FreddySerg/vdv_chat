@@ -15,9 +15,12 @@
 //= require_tree .
 
 $(function(){
+  scroll_to_textarea();
+
   $('#add_but').click(function(){
     $('#form_tr').css('display','');
     $('#add_tr').css('display','none');
+    scroll_to_textarea();
   });
 
   $(document).on("click", "div.message", function(event){
@@ -43,3 +46,8 @@ $(function(){
     r.select();}
   });
 });
+
+function scroll_to_textarea(){
+  var destination = $('.textarea_style').offset().top;
+  $("html,body").animate({scrollTop: destination}, 100);
+}
