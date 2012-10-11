@@ -15,6 +15,12 @@
 //= require_tree .
 
 $(function(){
+  $("textarea").bind('keydown', function(e){
+    if (e.ctrlKey && e.keyCode == 13) {
+      $(this).parents('form').submit();
+    }
+  });
+  
   scroll_to_textarea();
 
   $('#add_but').click(function(){
