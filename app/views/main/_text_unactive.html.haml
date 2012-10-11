@@ -7,7 +7,7 @@
         %tr
           %td.text
             .message.active
-              = item.text
+              = raw item.text
         %tr
           %td
             = hidden_field_tag :message_id, item.id

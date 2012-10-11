@@ -9,7 +9,8 @@ class MainController < ApplicationController
         new_message.save
         if new_message.valid?
           @messages = Message.get_messages
-          FayeChat.message('/vdv_chat', new_message.id, new_message.text, "unactive")
+          #FayeChat.message('/vdv_chat', new_message.id, new_message.text, "unactive")
+          Resque.enqueue(SendMessage, '/vdv_chat', new_message.id, new_message.text, "unactive")
         else
           render :nothing => true
         end
@@ -24,7 +25,8 @@ class MainController < ApplicationController
     respond_to do |format|
       format.js do
         @messages = Message.get_messages
-        FayeChat.message('/vdv_chat', message.id, message.text, "active")
+        #FayeChat.message('/vdv_chat', message.id, message.text, "active")
+        Resque.enqueue(SendMessage, '/vdv_chat', message.id, message.text, "active")
       end
     end
   end

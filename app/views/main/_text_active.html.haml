@@ -6,7 +6,7 @@
         %td
           .message
             %s
-              = item.text
+              = raw item.text
   %td.img_right
     = link_to message_path(item), :method => :delete, :remote => true do
       = image_tag('del_button.png')
