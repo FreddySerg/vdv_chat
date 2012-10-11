@@ -39,8 +39,8 @@ table{
 }
 
 table.task{
-  width: 740px;
-  margin: 0 70% 0 30%;
+  width: 780px;
+  margin: 0 auto;
 }
 
 table.active{
@@ -53,6 +53,12 @@ table.unactive_table{
 
 table.task td{
   padding-right: 10px;
+  width: 30px;
+}
+
+table.task td.img_right{
+  padding-left: 10px;
+  padding-right: 0px;
   width: 30px;
 }
 
@@ -79,6 +85,11 @@ table.unactive_table td.text{
 }
 
 .unactive td.img{
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+.active td.img{
   vertical-align: top;
   padding-top: 10px;
 }

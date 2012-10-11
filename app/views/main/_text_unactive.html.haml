@@ -1,4 +1,4 @@
-%tr.unactive
+%tr.unactive{:id => item.id}
   = form_tag(to_active_main_path, :method => 'get', :remote => true) do
     %td.img
       = image_submit_tag "ok_button.png", :onClick => "$.ajax({url: '#{to_active_main_path}', type: 'get', data: 'message_id=#{item.id}'});"
@@ -11,3 +11,4 @@
         %tr
           %td
             = hidden_field_tag :message_id, item.id
+    %td

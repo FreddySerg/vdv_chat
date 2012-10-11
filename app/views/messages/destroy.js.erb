@@ -1,0 +1,2 @@
+$(".active_tr").remove();
+$(".line").before("<%= escape_javascript(render :partial => '/main/text_active', :collection => @messages[:active], :as => :item) %>");

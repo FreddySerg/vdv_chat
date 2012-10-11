@@ -1,0 +1,35 @@
+$(function(){
+  var faye = new Faye.Client("<%= FAYE_URL %>");
+  faye.subscribe("/vdv_chat", function(data) {
+    var id = data[0];
+    var message = data[1];
+    var status = data[2];
+    if (status == "unactive"){
+      var last_tr = $('.unactive:last');
+      if (last_tr.attr('id') == undefined){
+        $(".line").after("<tr class=\"unactive\" id = " + id + "><form accept-charset=\"UTF-8\" action=\"/to_active\" data-remote=\"true\" method=\"get\"></form><td class=\"img\"><input onclick=\"$.ajax({url: /to_active', type: 'get', data: 'message_id=" + id + "'});\" src=\"/assets/ok_button.png\" type=\"image\"></td><td class=\"main\"><table cellpadding=\"0\" cellspacing=\"0\" class=\"unactive_table\"><tbody><tr><td class=\"text\"><div class=\"message active\">" + message + "</div></td></tr><tr><td><input id=\"message_id\" name=\"message_id\" type=\"hidden\" value=\"" + id + "\"></td></tr></tbody></table></td><td></td></tr>");
+      }
+      else{
+        if (last_tr.attr('id') != id){
+          last_tr.after("<tr class=\"unactive\" id = " + id + "><form accept-charset=\"UTF-8\" action=\"/to_active\" data-remote=\"true\" method=\"get\"></form><td class=\"img\"><input onclick=\"$.ajax({url: /to_active', type: 'get', data: 'message_id=" + id + "'});\" src=\"/assets/ok_button.png\" type=\"image\"></td><td class=\"main\"><table cellpadding=\"0\" cellspacing=\"0\" class=\"unactive_table\"><tbody><tr><td class=\"text\"><div class=\"message active\">" + message + "</div></td></tr><tr><td><input id=\"message_id\" name=\"message_id\" type=\"hidden\" value=\"" + id + "\"></td></tr></tbody></table></td><td></td></tr>");
+        }
+      }
+    }
+    if (status == "delete"){
+      $('.active_tr#' + id).remove();
+    }
+    if (status == "active"){
+      var last_tr = $('.active_tr:last');
+      if (last_tr.attr('id') == undefined){
+        $('.unactive#' + id).remove();
+        $(".line").before("<tr class=\"active_tr\" id=\"" + id + "\"><td></td><td class=\"main\"><table class=\"active\" id=\"active\"><tbody><tr><td><div class=\"message\">" + message + "</div></td></tr></tbody></table></td><td class=\"img_right\"><a href=\"/messages/" + id + "\" data-method=\"delete\" data-remote=\"true\" rel=\"nofollow\"><img alt=\"Del_button\" src=\"/assets/del_button.png\"></a></td></tr>");
+      }
+      else{
+        if (last_tr.attr('id') != id){
+          $('.unactive#' + id).remove();
+          last_tr.after("<tr class=\"active_tr\" id=\"" + id + "\"><td></td><td class=\"main\"><table class=\"active\" id=\"active\"><tbody><tr><td><div class=\"message\">" + message + "</div></td></tr></tbody></table></td><td class=\"img_right\"><a href=\"/messages/" + id + "\" data-method=\"delete\" data-remote=\"true\" rel=\"nofollow\"><img alt=\"Del_button\" src=\"/assets/del_button.png\"></a></td></tr>");
+        }
+      }
+    }
+  });
+});
