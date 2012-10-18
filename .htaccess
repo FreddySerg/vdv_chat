@@ -1,2 +1,2 @@
-ProxyPass / http://127.0.0.1:3000
-ProxyPassReverse /foo http://127.0.0.1:3000
+RewriteEngine On
+RewriteRule / http://127.0.0.1:3000/
